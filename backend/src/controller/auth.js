@@ -2,8 +2,6 @@ const User = require("../models/user");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const shortid = require("shortid");
-const randomstring = require("randomstring");
-
 
 //JWT
 const generateJwtToken = (_id, role) => {
@@ -12,30 +10,29 @@ const generateJwtToken = (_id, role) => {
   });
 };
 
-
-//Signup
+//Signup New
 exports.signup = (req, res) => {
-  User.findOne({ email: req.body.email }).exec(async (error, user) => {
+  User.findOne({ email: req.body.email }).exec(async(error, user) => {
     if (user)
       return res.status(400).json({
-        
-        error: "User already registered",
+        message: "User Already Registered",
       });
 
     const { firstName, lastName, email, password } = req.body;
-    const hash_password = await bcrypt.hash(password, 10);
+    const hash_password = password;
+   // const hash_password = await bcrypt.hash(password, 10);
     const _user = new User({
       firstName,
       lastName,
       email,
       hash_password,
-      username: shortid.generate(),
+      Username: shortid.generate(),
     });
 
     _user.save((error, user) => {
       if (error) {
         return res.status(400).json({
-           error,
+          error,
           message: "Something went wrong",
         });
       }
@@ -44,6 +41,7 @@ exports.signup = (req, res) => {
         const token = generateJwtToken(user._id, user.role);
         const { _id, firstName, lastName, email, role, fullName } = user;
         return res.status(201).json({
+          message: "user created successfully...!",
           token,
           user: { _id, firstName, lastName, email, role, fullName },
         });
@@ -51,9 +49,6 @@ exports.signup = (req, res) => {
     });
   });
 };
-
-
-
 
 //Signin
 exports.signin = (req, res) => {
@@ -70,11 +65,11 @@ exports.signin = (req, res) => {
         });
       } else {
         return res.status(400).json({
-          message: "Invalid Credentials",
+          message: "Invalid Password...!",
         });
       }
     } else {
-      return res.status(400).json({ message: "Something went wrong" });
+      return res.status(400).json({ message: "Invalid Username or Password..!" });
     }
   });
 };

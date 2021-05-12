@@ -24,18 +24,20 @@ exports.signup = (req, res) => {
         lastName,
         email,
         hash_password,
-        username: shortid.generate(),
+        Username: shortid.generate(),
         role,
       });
 
       _user.save((error, data) => {
         if (error) {
           return res.status(400).json({
+            error,
             message: "Something went wrong",
           });
         }
 
         if (data) {
+          const { _id, firstName, lastName, email, role, fullName } = user;
           return res.status(201).json({
             message: "Admin created Successfully..!",
           });
@@ -45,6 +47,8 @@ exports.signup = (req, res) => {
   });
 };
 
+
+// Signin
 exports.signin = (req, res) => {
   User.findOne({ email: req.body.email }).exec(async (error, user) => {
     if (error) return res.status(400).json({ error });
@@ -71,7 +75,7 @@ exports.signin = (req, res) => {
         });
       }
     } else {
-      return res.status(400).json({ message: "Something went wrong" });
+      return res.status(400).json({ message: "Invalid Username or Password..!" });
     }
   });
 };

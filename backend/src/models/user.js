@@ -17,11 +17,13 @@ const userSchema = new mongoose.Schema(
       min: 3,
       max: 20,
     },
-    username: {
+    Username: {
       type: String,
       required: true,
+      trim: true,
       unique: true,
-      sparse: true,
+      index: true,
+      lowercase: true,
     },
     email: {
       type: String,
@@ -51,7 +53,7 @@ userSchema.virtual("fullName").get(function () {
 
 userSchema.methods = {
   authenticate: async function (password) {
-    return await bcrypt.compare(password, this.hash_password);
+    return await bcrypt.compareSync(password, this.hash_password);
   },
 };
 
