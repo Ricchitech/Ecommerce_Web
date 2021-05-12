@@ -1,0 +1,15 @@
+mongoose
+express
+express-validator
+body-parser
+aws-sdk
+bcrypt
+body-parser
+cors
+dotenv
+jsonwebtoken
+multer
+multer-s3
+shortid
+slugify
+randomstring

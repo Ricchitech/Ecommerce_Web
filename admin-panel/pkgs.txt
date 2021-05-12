@@ -1,0 +1,14 @@
+react-bootstrap
+bootstrap
+react-router-dom
+axios
+bootstrap
+react
+react-checkbox-tree
+react-dom
+react-icons
+react-redux
+react-scripts
+redux
+redux-devtools-extension
+redux-thunk
