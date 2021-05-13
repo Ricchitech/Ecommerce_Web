@@ -4,13 +4,13 @@ const multer = require("multer");
 const path = require("path");
 const shortid = require("shortid");
 
- const {
-   createProduct,
-   getProductsBySlug,
-   getProductDetailsById,
-   deleteProductById,
-   getProducts,
- } = require("../controller/product");
+const {
+  createProduct,
+  getProductsBySlug,
+  getProductDetailsById,
+  deleteProductById,
+  getProducts,
+} = require("../controller/product");
 
 const {
   requireSignin,
@@ -27,11 +27,22 @@ const storage = multer.diskStorage({
     cb(null, shortid.generate() + "-" + file.originalname);
   },
 });
-
 const upload = multer({ storage });
 
 
-router.post("/product/create", requireSignin, adminMiddleware,upload.array('productPicture'), createProduct); 
+router.post(
+  "/product/create",
+  requireSignin,
+  adminMiddleware,
+  upload.array("productPicture"),
+  createProduct
+); //route ==> /product/create 
+
+router.get("/products/:slug", getProductsBySlug);
+
+
+
+
 
 
 module.exports = router;

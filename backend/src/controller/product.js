@@ -8,8 +8,6 @@ const path = require("path");
 
 //Create products
 exports.createProduct = (req, res) => {
-//res.status(200).json({file:req.files,body:req.body});
-
 const { name, price, description, category, quantity, createdBy } = req.body;
   let productPictures = [];
 
@@ -36,8 +34,6 @@ const { name, price, description, category, quantity, createdBy } = req.body;
       res.status(201).json({ product, files: req.files });
     }
   });
-
-
 };
 
 
