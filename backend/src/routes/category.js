@@ -18,7 +18,7 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage });
 
-router.post("/category/create",requireSignin,adminMiddleware, addCategory); //,superAdminMiddleware, upload.single("categoryImage"),
+router.post("/category/create",requireSignin,adminMiddleware,upload.single('categoryImage'), addCategory); //,superAdminMiddleware, upload.single("categoryImage"),
 router.get("/category/getcategory", getCategories);
 
 // router.post("/category/update",requireSignin,superAdminMiddleware,
