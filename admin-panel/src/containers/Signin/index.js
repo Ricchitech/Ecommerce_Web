@@ -2,18 +2,34 @@ import React from 'react';
 import Layout from "../../Components/Layout";
 import { Container, Form, Button,Row,Col } from "react-bootstrap";
 import Input from "../../Components/UI/Input";
+import {login} from '../../actions';
+import {useDispatch} from 'react-redux';
+
  /**
  * @author Bharathraj
  * @function Signin
  **/
 
 const Signin = () => {
+
+  const dispatch = useDispatch();
+
+  const userLogin=(e)=>{
+    e.preventDefault();
+    const user ={
+      email:'brg2289@gmail.com',
+      password:'123456'
+    }
+    dispatch(login(user));  
+  }
+
+
     return (
       <Layout>
         <Container>
           <Row style={{ marginTop: "50px" }}>
             <Col md={{ span: 6, offset: 3 }}>
-              <Form>
+              <Form onSubmit={userLogin}>
                 <Input
                   label="Email address"
                   placeholder="Enter Email address"
@@ -31,7 +47,7 @@ const Signin = () => {
                   onChange={() => {}}
                 />
 
-                <Button variant="primary" type="submit">
+                <Button  variant="primary" type="submit">
                   Submit
                 </Button>
               </Form>
