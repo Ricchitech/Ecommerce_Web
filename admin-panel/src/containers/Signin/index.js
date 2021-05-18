@@ -1,28 +1,44 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Layout from "../../Components/Layout";
 import { Container, Form, Button,Row,Col } from "react-bootstrap";
 import Input from "../../Components/UI/Input";
-import {login} from '../../actions';
-import {useDispatch} from 'react-redux';
+import { isUserLoggedIn, login } from '../../actions';
+import { useDispatch, useSelector } from 'react-redux';
+import { Redirect } from 'react-router-dom';
+
 
  /**
  * @author Bharathraj
  * @function Signin
  **/
 
-const Signin = () => {
+const Signin = (props) => {
+
+const [email, setEmail] = useState('');
+const [password, setPassword] = useState('');
+const [error, setError] = useState('');
+const auth = useSelector(state => state.auth);
+
 
   const dispatch = useDispatch();
 
-  const userLogin=(e)=>{
+  //useEffect(() => {
+  //   if(!auth.authenticate){   
+  //dispatch(isUserLoggedIn());
+  //   }                       
+  // },[]);
+
+  const userLogin = (e) => {
     e.preventDefault();
-    const user ={
-      email:'brg2289@gmail.com',
-      password:'123456'
+    const user = {
+      email,password
     }
     dispatch(login(user));  
   }
 
+     if(auth.authenticate){
+       return <Redirect to = {'/'}/> 
+     }
 
     return (
       <Layout>
@@ -34,8 +50,8 @@ const Signin = () => {
                   label="Email address"
                   placeholder="Enter Email address"
                   type="email"
-                  value=""
-                  onChange={() => {}}
+                  value={email}
+                 onChange={(e) => setEmail(e.target.value)}
                   errorMessage="We'll never share your email with anyone else."
                 />
 
@@ -43,8 +59,10 @@ const Signin = () => {
                   label="Password"
                   placeholder="Enter Password"
                   type="password"
-                  value=""
-                  onChange={() => {}}
+                  value={password}
+                  
+                  
+                  onChange={(e) => setPassword(e.target.value)}
                 />
 
                 <Button  variant="primary" type="submit">
