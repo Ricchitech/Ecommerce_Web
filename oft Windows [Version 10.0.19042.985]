@@ -1,0 +1,78 @@
+[33mcommit eed4e3a36a1b2701f2adacd89cf2f350b9744887[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Merge: 5e78300 f849905
+Author: Bharathraj Gowda <35210955+Ricchitech@users.noreply.github.com>
+Date:   Wed May 19 07:55:15 2021 +0530
+
+    Merge pull request #1 from chinnammakk/main
+    
+    Chinnamma KK Contribution
+
+[33mcommit f849905d580d1a8dc234823301424d04f14090d5[m
+Author: Ricchi Gowda <35210955+Ricchitech@users.noreply.github.com>
+Date:   Tue May 18 21:54:34 2021 +0530
+
+    Admin Login and Private Routing added
+    
+    fix multiple time admin login issue in admin-panel
+
+[33mcommit 15bf1e1930904581371e18b118e8d74618ef7728[m
+Author: Ricchi Gowda <35210955+Ricchitech@users.noreply.github.com>
+Date:   Fri May 14 11:43:00 2021 +0530
+
+    Admin Login setup added
+    
+    Admin Login setup is added in AdminPanel using Redux , Thunk packages
+
+[33mcommit 0ab61d074f2b64219e7d18f9b1b33676ecc829b2[m
+Author: Ricchi Gowda <35210955+Ricchitech@users.noreply.github.com>
+Date:   Fri May 14 04:05:42 2021 +0530
+
+    Fixed Cart Issue and Updated CategoryImage
+    
+    by the beginnig i face some issues in Cart Sections so i updated those and Fixed.. and added Category Image to Category list
+
+[33mcommit ca4b48e20486c88f1bc46b6d893bc831c9976e1b[m
+Author: Ricchi Gowda <35210955+Ricchitech@users.noreply.github.com>
+Date:   Fri May 14 02:49:27 2021 +0530
+
+    Cart API is Added
+    
+    Cart API is added to Backend and as well as Updated the fixed the multiples carts for single user
+
+[33mcommit b51691a2770c70c65f4d14e8d21867697183ecc2[m
+Author: Ricchi Gowda <35210955+Ricchitech@users.noreply.github.com>
+Date:   Fri May 14 01:12:56 2021 +0530
+
+    Product Creation API Added to Backend
+    
+    Product Creation module added to backend, looks everything working fine and tested everything,
+
+[33mcommit 5e78300946620ae0f5046ad5910869a4e626ecb6[m
+Author: Ricchi Gowda <35210955+Ricchitech@users.noreply.github.com>
+Date:   Thu May 13 18:05:39 2021 +0530
+
+    Some Backend Issue Solved
+
+[33mcommit dad10ea4534a084fa8f59578179f4a42ba7d4c65[m
+Author: Ricchi Gowda <35210955+Ricchitech@users.noreply.github.com>
+Date:   Wed May 12 21:50:31 2021 +0530
+
+    User signup and Admin Signup problem fixed
+
+[33mcommit 86708a95674898e76b63d23ce61eda8eb1cd793e[m
+Author: Ricchi Gowda <35210955+Ricchitech@users.noreply.github.com>
+Date:   Wed May 12 12:02:27 2021 +0530
+
+    .gitignore updated
+
+[33mcommit d372249cb278a8899c1e7b976141ed10cb5a722c[m
+Author: Ricchi Gowda <35210955+Ricchitech@users.noreply.github.com>
+Date:   Wed May 12 11:09:50 2021 +0530
+
+    Backend part completed, Admin-panel added
+
+[33mcommit d8729317a7caf4fabc574fd01b2a9fbb9a25d2a8[m
+Author: Bharathraj Gowda <35210955+Ricchitech@users.noreply.github.com>
+Date:   Sun May 9 22:03:55 2021 +0530
+
+    Initial commit

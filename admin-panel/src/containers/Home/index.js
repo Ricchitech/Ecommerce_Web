@@ -1,16 +1,23 @@
-import React from 'react'
-import { Jumbotron } from "react-bootstrap";
+import React from "react";
+import { Jumbotron, Container, Form, Button, Row, Col } from "react-bootstrap";
 import Layout from "../../Components/Layout";
-
+import './style.css';
 /**
-* @author
-* @function Home
-**/
+ * @author
+ * @function Home
+ **/
 
 const Home = (props) => {
   return (
     <Layout>
-      <Jumbotron style={{ margin: "0", background: "#fff" }}>
+      <Container fluid>
+        <Row>
+          <Col md={2} className="sidebar">Sidebar</Col>
+          <Col md={10} style={{marginLeft: 'auto'}}>Container</Col>
+        </Row>
+      </Container>
+
+      {/* <Jumbotron style={{ margin: "0", background: "#fff" }}>
         <h1>Admin Panel</h1>
         <p>
           Corporate Web design has certain elements designed to attract
@@ -19,10 +26,9 @@ const Home = (props) => {
           website or page to the user and entices them to visit more of the
           website.
         </p>
-      </Jumbotron>
+      </Jumbotron> */}
     </Layout>
   );
-  }
-
+};
 
 export default Home;

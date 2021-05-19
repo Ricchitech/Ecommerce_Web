@@ -37,7 +37,6 @@ exports.signup = (req, res) => {
         }
 
         if (data) {
-          const { _id, firstName, lastName, email, role, fullName } = user;
           return res.status(201).json({
             message: "Admin created Successfully..!",
           });
