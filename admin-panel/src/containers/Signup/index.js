@@ -36,7 +36,7 @@ const Signup = () => {
                 </Col>
               </Row>
 
-              <Row>
+              {/* <Row>
                 <Col md={12}>
                   <Input
                     label="Contact Number"
@@ -46,7 +46,7 @@ const Signup = () => {
                     onChange={() => {}}
                   />
                 </Col>
-              </Row>
+              </Row> */}
 
               <Input
                 label="Email address"
