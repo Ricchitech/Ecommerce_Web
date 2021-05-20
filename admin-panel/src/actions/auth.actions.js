@@ -1,7 +1,6 @@
 import { authConstants } from "./constants";
 import axios from "../helpers/axios";
 
-
 //Login
 export const login = (user) => {
   console.log(user);
@@ -40,7 +39,6 @@ export const login = (user) => {
   };
 };
 
-
 export const isUserLoggedIn = () => {
   return async (dispatch) => {
     const token = localStorage.getItem("token");
@@ -65,11 +63,20 @@ export const isUserLoggedIn = () => {
   };
 };
 
-
-export const signout = ()=>{
-    return async dispatch =>{
-        localStorage.clear();
-        dispatch({
-            type:authConstants.LOGOUT_REQUEST});
+export const signout = () => {
+  return async (dispatch) => {
+    dispatch({ type: authConstants.LOGOUT_REQUEST });
+    const res = await axios.post("/admin/signout");
+    if (res.status === 200) {
+      localStorage.clear();
+      dispatch({
+        type: authConstants.LOGOUT_SUCCESS,
+      });
+    } else {
+      dispatch({
+        type: authConstants.LOGOUT_FAILURE,
+        payload: { error: res.data.error },
+      });
     }
-}
+  };
+};
