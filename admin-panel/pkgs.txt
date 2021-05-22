@@ -11,4 +11,13 @@ react-redux
 react-scripts
 redux
 redux-devtools-extension
-redux-thunk
+redux-thunks
+@material-ui/core
+@material-ui/icons
+eslint-loader 
+babel-eslint 
+eslint babel-loader 
+eslint-config-prettier 
+prettier 
+eslint-plugin-react 
+jest 

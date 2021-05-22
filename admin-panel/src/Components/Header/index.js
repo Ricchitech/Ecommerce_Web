@@ -3,6 +3,7 @@ import { Navbar, Nav, Container } from "react-bootstrap";
 import { NavLink, Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {signout} from '../../actions';
+import "./style.css";
 /**
  * @author Bharathraj
  * @function Header
@@ -17,12 +18,14 @@ const logout = ()=>{
 
   const renderLoggedInLinks = () => {
     return (
-      <Nav>
-        <li className="nav-item">
-          <span className="nav-link" onClick={logout}>
-            Signout
-          </span>
-        </li>
+      <Nav className="navbar">
+        <div>
+          <li className="nav-item">
+            <span className="nav-link" onClick={logout}>
+              Signout
+            </span>
+          </li>
+        </div>
       </Nav>
     );
   };
@@ -31,16 +34,19 @@ const logout = ()=>{
   const renderNonLoggedInLinks = () => {
     return (
       <Nav>
-        <li className="nav-item">
-          <NavLink to="/signin" className="nav-link">
-            Signin
-          </NavLink>
-        </li>
-        <li className="nav-item">
-          <NavLink to="/signup" className="nav-link">
-            Signup
-          </NavLink>
-        </li>
+        <div className="navbar">
+          <li className="nav-item">
+            <NavLink to="/signin" className="nav-link">
+              Signin
+            </NavLink>
+          </li>
+
+          <li className="nav-item">
+            <NavLink to="/signup" className="nav-link">
+              Signup
+            </NavLink>
+          </li>
+        </div>
       </Nav>
     );
   };
@@ -54,9 +60,14 @@ const logout = ()=>{
       style={{ zIndex: 1 }}
     >
       <Container fluid>
-        <Link to="/" className="navbar-brand">
-          Dashboard
-        </Link>
+        <div className="navbar-brand">
+          <h3>
+            <Link to="/">
+              <span>eKart</span>
+            </Link>
+          </h3>
+        </div>
+
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto">

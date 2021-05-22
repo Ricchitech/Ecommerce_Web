@@ -6,10 +6,9 @@ import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 import store from './store';
 import {BrowserRouter as Router} from 'react-router-dom';
-
+//import * as serviceWorker from './serviceWorker';
 
 window.store = store;
-
 
 ReactDOM.render(
   <Provider store={store}>
@@ -23,3 +22,4 @@ ReactDOM.render(
 );
 
 reportWebVitals();
+//serviceWorker.unregister();

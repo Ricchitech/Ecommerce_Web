@@ -1,0 +1,42 @@
+.navbar-brand {
+    margin-left: 15px;
+    text-decoration: none;
+}
+
+.navbar-brand span {
+    font-weight: bold;
+    color: #ff9933;
+    margin: 0;
+    font-size: 40px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+
+.navbar {
+    padding: 5px;
+}
+
+.nav-item {
+    padding: 5px;
+}
+
+.nav-link {
+    padding: 5px;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #4627f6ed;
+    border-radius: 10px;
+    transition: 0.8s;
+    transition-property: background;
+}
+
+.nav-link:hover {
+    background: #ff3399;
+    text-decoration: none;
+}
+
+.navbar-brand .firstletter {
+    color: #fff;
+    font-size: 45px;
+}

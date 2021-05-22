@@ -1,13 +1,20 @@
-import React from 'react'
-import Layout from "../../Components/Layout";
+import React from 'react';
+import { Col, Container, Row } from "react-bootstrap";
+import Layout from "../../Components/Layout"; 
 
-/**
-* @author
-* @function Orders
-**/
 
-const Orders = (props) => {
-  return <Layout sidebar>Orders</Layout>;
-  }
-
+const Orders = () => {
+    return (
+      <Layout sidebar>
+        <Container>
+          <Row>
+            <Col>
+                <h3>Orders</h3>
+            </Col>
+          </Row>
+        </Container>
+      </Layout>
+    );
+};
+ 
 export default Orders;

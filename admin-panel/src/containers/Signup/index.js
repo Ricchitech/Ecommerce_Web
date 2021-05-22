@@ -22,14 +22,14 @@ const Signup = (props) => {
   const user = useSelector((state) => state.user);
   const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   if (!user.loading) {
-  //     setfirstName("");
-  //     setLastName("");
-  //     setEmail("");
-  //     setPassword("");
-  //   }
-  // }, [user.loading]);
+   useEffect(() => {
+     if (!user.loading) {
+       setfirstName("");
+       setLastName("");
+       setEmail("");
+       setPassword("");
+     }
+   }, [user.loading]);
 
   const userSignup = (e) => {
     e.preventDefault();
@@ -48,9 +48,9 @@ const Signup = (props) => {
     return <Redirect to={`/`} />;
   }
 
-   if (user.loading) {
-     return <p>Loading...! Please Wait!!!!</p>;
-   }
+    if (user.loading) {
+      return <p>Loading...! Please Wait!!!!</p>;
+    }
 
   return (
     <Layout>
