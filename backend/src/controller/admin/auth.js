@@ -25,13 +25,12 @@ exports.signup = (req, res) => {
         email,
         hash_password,
         Username: shortid.generate(),
-        role,
+        role:'admin',
       });
 
       _user.save((error, data) => {
         if (error) {
           return res.status(400).json({
-            error,
             message: "Something went wrong",
           });
         }
@@ -46,8 +45,6 @@ exports.signup = (req, res) => {
   });
 };
 
-
-// Signin
 exports.signin = (req, res) => {
   User.findOne({ email: req.body.email }).exec(async (error, user) => {
     if (error) return res.status(400).json({ error });
@@ -74,7 +71,7 @@ exports.signin = (req, res) => {
         });
       }
     } else {
-      return res.status(400).json({ message: "Invalid Username or Password..!" });
+      return res.status(400).json({ message: "Something went wrong" });
     }
   });
 };

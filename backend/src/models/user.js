@@ -28,6 +28,7 @@ const userSchema = new mongoose.Schema(
     email: {
       type: String,
       required: true,
+      trim: true,
       unique: true,
       lowercase: true,
     },
@@ -41,11 +42,15 @@ const userSchema = new mongoose.Schema(
       default: "user",
     },
     contactNumber: { type: String },
-    profilePicture: { type: String },
+    pofilePicture: { type: String },
   },
   { timestamps: true }
 );
 
+// userSchema.virtual('password')
+// .set(function(password){
+//     this.hash_password = bcrypt.hashSync(password, 10);
+// });
 
 userSchema.virtual("fullName").get(function () {
   return `${this.firstName} ${this.lastName}`;
@@ -53,8 +58,8 @@ userSchema.virtual("fullName").get(function () {
 
 userSchema.methods = {
   authenticate: async function (password) {
-    return await bcrypt.compareSync(password, this.hash_password);
+    return await bcrypt.compare(password, this.hash_password);
   },
 };
 
-module.exports = mongoose.model('User', userSchema);
+module.exports = mongoose.model("User", userSchema);

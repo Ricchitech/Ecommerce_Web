@@ -1,18 +1,31 @@
 import React from 'react';
+
 import HomeIcon from "@material-ui/icons/Home";
-import FaceIcon from "@material-ui/icons/Face";
-import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import AccountTreeIcon from "@material-ui/icons/AccountTree";
 import ViewListIcon from "@material-ui/icons/ViewList";
 import LocalAtmIcon from "@material-ui/icons/LocalAtm";
-import AccountCircleIcon from "@material-ui/icons/AccountCircle";
-import ArrowBackIcon from "@material-ui/icons/ArrowBack";
-
+import PostAddIcon from "@material-ui/icons/PostAdd";
+import SupervisorAccountIcon from '@material-ui/icons/SupervisorAccount';
 export const sidebardata = [
+  // {
+  //   title: username,
+  //   icon: <SupervisorAccountIcon />,
+  //   link: "",
+  // },
   {
     title: "Home",
     icon: <HomeIcon />,
     link: "/",
+  },
+  {
+    title: "Pages",
+    icon: <PostAddIcon />,
+    link: "/page",
+  },
+  {
+    title: "Categories",
+    icon: <AccountTreeIcon />,
+    link: "/category",
   },
   {
     title: "Product",
@@ -24,19 +37,5 @@ export const sidebardata = [
     icon: <LocalAtmIcon />,
     link: "/orders",
   },
-  {
-    title: "Categories",
-    icon: <AccountTreeIcon />,
-    link: "/category",
-  },
-  {
-    title: "Profile",
-    icon: <AccountCircleIcon />,
-    link: "/",
-  },
-  {
-    title: "Go Back",
-    icon: <ArrowBackIcon />,
-    link: "/",
-  },
+
 ];

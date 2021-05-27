@@ -7,6 +7,7 @@ exports.validateSignupRequest = [
     check('lastName')
     .notEmpty()
     .withMessage('lastName is required'),
+    check('lastName'),
     check('email')
     .isEmail()
     .withMessage('Valid Email is required'),

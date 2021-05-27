@@ -1,19 +1,19 @@
 import React, { useState } from "react";
-import Layout from "../../Components/Layout";
+import Layout from "../../components/Layout";
 import { Container, Form, Row, Col, Button } from "react-bootstrap";
-import Input from "../../Components/UI/Input";
+import Input from "../../components/UI/Input";
 import { Redirect } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { signup } from "../../actions";
 import { useEffect } from "react";
 
 /**
- * @author Bharathraj
+ * @author
  * @function Signup
  **/
 
 const Signup = (props) => {
-  const [firstName, setfirstName] = useState("");
+  const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -22,14 +22,14 @@ const Signup = (props) => {
   const user = useSelector((state) => state.user);
   const dispatch = useDispatch();
 
-   useEffect(() => {
-     if (!user.loading) {
-       setfirstName("");
-       setLastName("");
-       setEmail("");
-       setPassword("");
-     }
-   }, [user.loading]);
+  useEffect(() => {
+    if (!user.loading) {
+      setFirstName("");
+      setLastName("");
+      setEmail("");
+      setPassword("");
+    }
+  }, [user.loading]);
 
   const userSignup = (e) => {
     e.preventDefault();
@@ -48,68 +48,53 @@ const Signup = (props) => {
     return <Redirect to={`/`} />;
   }
 
-    if (user.loading) {
-      return <p>Loading...! Please Wait!!!!</p>;
-    }
+  if (user.loading) {
+    return <p>Loading...!</p>;
+  }
 
   return (
     <Layout>
       <Container>
         {user.message}
-        <Row style={{ marginTop: "50px" }}>
+        <Row style={{ marginTop: "120px" }}>
           <Col md={{ span: 6, offset: 3 }}>
             <Form onSubmit={userSignup}>
               <Row>
                 <Col md={6}>
                   <Input
-                    label="Firstname"
-                    placeholder="Firstname"
-                    type="text"
+                    label="First Name"
+                    placeholder="First Name"
                     value={firstName}
-                    onChange={(e) => setfirstName(e.target.value)}
+                    type="text"
+                    onChange={(e) => setFirstName(e.target.value)}
                   />
                 </Col>
                 <Col md={6}>
                   <Input
-                    label="Lastname"
-                    placeholder="Lastname"
-                    type="text"
+                    label="Last Name"
+                    placeholder="Last Name"
                     value={lastName}
+                    type="text"
                     onChange={(e) => setLastName(e.target.value)}
                   />
                 </Col>
               </Row>
 
-              {/* <Row>
-                <Col md={12}>
-                  <Input
-                    label="Contact Number"
-                    placeholder="Mobile Number"
-                    type="text"
-                    value=""
-                    onChange={() => {}}
-                  />
-                </Col>
-              </Row> */}
-
               <Input
-                label="Email address"
-                placeholder="Enter Email address"
-                type="email"
+                label="Email"
+                placeholder="Email"
                 value={email}
+                type="email"
                 onChange={(e) => setEmail(e.target.value)}
-                errorMessage="We'll never share your email with anyone else."
               />
 
               <Input
                 label="Password"
-                placeholder="Enter Password"
-                type="password"
-                errorMessage="Set a Strong password."
+                placeholder="Password"
                 value={password}
+                type="password"
                 onChange={(e) => setPassword(e.target.value)}
               />
-
               <Button variant="primary" type="submit">
                 Submit
               </Button>

@@ -3,24 +3,21 @@ const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const shortid = require("shortid");
 
-//JWT
 const generateJwtToken = (_id, role) => {
   return jwt.sign({ _id, role }, process.env.JWT_SECRET, {
-    expiresIn: "2d",
+    expiresIn: "1d",
   });
 };
 
-//Signup New
 exports.signup = (req, res) => {
-  User.findOne({ email: req.body.email }).exec(async(error, user) => {
+  User.findOne({ email: req.body.email }).exec(async (error, user) => {
     if (user)
       return res.status(400).json({
-        message: "User Already Registered",
+        error: "User already registered",
       });
 
     const { firstName, lastName, email, password } = req.body;
-    const hash_password = password;
-   // const hash_password = await bcrypt.hash(password, 10);
+    const hash_password = await bcrypt.hash(password, 10);
     const _user = new User({
       firstName,
       lastName,
@@ -41,7 +38,6 @@ exports.signup = (req, res) => {
         const token = generateJwtToken(user._id, user.role);
         const { _id, firstName, lastName, email, role, fullName } = user;
         return res.status(201).json({
-          message: "user created successfully...!",
           token,
           user: { _id, firstName, lastName, email, role, fullName },
         });
@@ -50,13 +46,17 @@ exports.signup = (req, res) => {
   });
 };
 
-//Signin
 exports.signin = (req, res) => {
   User.findOne({ email: req.body.email }).exec(async (error, user) => {
     if (error) return res.status(400).json({ error });
     if (user) {
       const isPassword = await user.authenticate(req.body.password);
       if (isPassword && user.role === "user") {
+        // const token = jwt.sign(
+        //   { _id: user._id, role: user.role },
+        //   process.env.JWT_SECRET,
+        //   { expiresIn: "1d" }
+        // );
         const token = generateJwtToken(user._id, user.role);
         const { _id, firstName, lastName, email, role, fullName } = user;
         res.status(200).json({
@@ -65,11 +65,11 @@ exports.signin = (req, res) => {
         });
       } else {
         return res.status(400).json({
-          message: "Invalid Password...!",
+          message: "Something went wrong",
         });
       }
     } else {
-      return res.status(400).json({ message: "Invalid Username or Password..!" });
+      return res.status(400).json({ message: "Something went wrong" });
     }
   });
 };

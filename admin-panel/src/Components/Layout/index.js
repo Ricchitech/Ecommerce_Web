@@ -4,7 +4,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import "./style.css";
 import { sidebardata } from "./sidebardata";
-//import Logo from "./images/brg.jpg";
+import { useSelector } from "react-redux";
 
 /**
  * @author Bharathraj
@@ -12,11 +12,13 @@ import { sidebardata } from "./sidebardata";
  *
  * */
 const Layout = (props) => {
+  const auth = useSelector((state) => state.auth);
+
   return (
     <>
       <Header />
       {props.sidebar ? (
-        <Container fluid>
+        <Container fluid fixed="top" style={{ marginTop: "60px" }}>
           <Row>
             <Col>
               <div className="sidebardiv">
@@ -26,6 +28,7 @@ const Layout = (props) => {
                     className="logo"
                   />
                 </div>
+
                 <ul className="sidebarlist">
                   {sidebardata.map((val, key) => {
                     return (
@@ -45,11 +48,15 @@ const Layout = (props) => {
                     );
                   })}
                 </ul>
+                <center className="bottomcontent">
+                  <h5 className="usersname">{auth.user.fullName}</h5>
+                  <h6 className="roleofuser">({auth.user.role})</h6>
+                </center>
               </div>
             </Col>
-              <Col md={12}>
-                {props.children}
-              </Col>
+            <Col md={12} style={{ margin: "auto", paddingTop: "80px" }}>
+              {props.children}
+            </Col>
           </Row>
         </Container>
       ) : (

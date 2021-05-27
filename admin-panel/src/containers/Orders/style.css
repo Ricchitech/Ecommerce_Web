@@ -1,25 +1,21 @@
-.orderTrack {
+.orderTrack{
     width: 500px;
     display: flex;
 }
-
-.orderStatus {
+.orderStatus{
     width: 33.33%;
     height: 5px;
     background: #777;
     position: relative;
     font-size: 12px;
 }
-
-.orderStatus.active {
+.orderStatus.active{
     background: #26A541;
 }
-
-.orderStatus:last-child {
+.orderStatus:last-child{
     width: 0;
 }
-
-.orderStatus .point {
+.orderStatus .point{
     width: 15px;
     height: 15px;
     position: absolute;
@@ -27,12 +23,10 @@
     background-color: #777;
     top: -5px;
 }
-
-.orderStatus .point.active {
+.orderStatus .point.active{
     background-color: #26A541;
 }
-
-.orderInfo {
+.orderInfo{
     height: 60px;
     display: flex;
     flex-direction: column;
@@ -42,12 +36,11 @@
     transform: translateX(-50%);
 }
 
-.title {
+.title{
     font-size: 14px;
     font-weight: 600;
 }
-
-.value {
+.value{
     font-size: 12px;
     text-transform: capitalize;
 }
