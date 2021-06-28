@@ -95,7 +95,7 @@ const Signup = (props) => {
                 type="password"
                 onChange={(e) => setPassword(e.target.value)}
               />
-              <Button variant="primary" type="submit">
+              <Button variant="primary" type="submit" style={{padding: '2px',}}>
                 Submit
               </Button>
             </Form>

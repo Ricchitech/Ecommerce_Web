@@ -19,8 +19,8 @@ const storage = multer.diskStorage({
 //const secretAccessKey = process.env.secretAccessKey;
 
 const s3 = new aws.S3({
-  accessKeyId: "AKIA5QX7E7K2TJHRWGJQ",
-  secretAccessKey: "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",
+  accessKeyId: "AKIAYIX7EOGWCSSJDIH7",
+  secretAccessKey: "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",
 });
 
 exports.upload = multer({ storage });
@@ -28,9 +28,9 @@ exports.upload = multer({ storage });
 exports.uploadS3 = multer({
   storage: multerS3({
     s3: s3,
-    bucket: "ekartapp",
+    bucket: "ekartapps",
     acl: "public-read",
-    
+
     metadata: function (req, file, cb) {
       cb(null, { fieldName: file.fieldname });
     },

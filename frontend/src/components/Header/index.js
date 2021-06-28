@@ -204,7 +204,7 @@ const Header = (props) => {
 
       <div className="subHeader">
         {/* Logo  */}
-        <div className="logo" >
+        <div className="logo">
           <a href="/">
             <img src={ekartlogo} className="logoimage" />
           </a>
@@ -229,12 +229,16 @@ const Header = (props) => {
                 }}
               />
             </div>
+
           </div>
         </div>
         {/* search component ends here */}
 
         {/* right side menu starts here */}
-        <div className="rightMenu" style={{ position: "fixed", right: "5px", top:"20px" }}>
+        <div
+          className="rightMenu"
+          style={{ position: "fixed", right: "5px", top: "20px" }}
+        >
           {auth.authenticate ? renderLoggedInMenu() : renderNonLoggedInMenu()}
           <div>
             <a href={`/cart`} className="cart">

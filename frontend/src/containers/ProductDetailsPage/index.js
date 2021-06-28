@@ -10,7 +10,7 @@ import "./style.css";
 import { addToCart } from "../../actions";
 
 /**
- * @author
+ * @author Bharathraj
  * @function ProductDetailsPage
  **/
 
@@ -57,7 +57,8 @@ const ProductDetailsPage = (props) => {
             <div className="flexRow">
               <MaterialButton
                 title="ADD TO CART"
-                bgColor="#ff9f00"
+                // bgColor="#ff9f00"
+                bgColor="SlateBlue"
                 textColor="#ffffff"
                 style={{
                   marginRight: "5px",
@@ -72,8 +73,10 @@ const ProductDetailsPage = (props) => {
               />
               <MaterialButton
                 title="BUY NOW"
-                bgColor="#fb641b"
+                bgColor="DodgerBlue"
+                // bgColor="#fb641b"
                 textColor="#ffffff"
+                className="buynowbtn"
                 style={{
                   marginLeft: "5px",
                 }}
@@ -84,18 +87,18 @@ const ProductDetailsPage = (props) => {
         </div>
         <div>
           {/* home > category > subCategory > productName */}
-          <div className="breed">
+          <div className="rightpart">
             <ul>
               <li>
                 <a href="#">Home</a>
                 <IoIosArrowForward />
               </li>
               <li>
-                <a href="#">Mobiles</a>
+                <a href="#">{product.productDetails.ParentId}</a>
                 <IoIosArrowForward />
               </li>
               <li>
-                <a href="#">Samsung</a>
+                <a href="#">{product.productDetails.name}</a>
                 <IoIosArrowForward />
               </li>
               <li>

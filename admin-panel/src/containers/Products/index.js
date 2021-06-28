@@ -63,46 +63,48 @@ const Products = (props) => {
 
   const renderProducts = () => {
     return (
-      <Table style={{ fontSize: 12 }} responsive="sm">
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Name</th>
-            <th>Price</th>
-            <th>Quantity</th>
-            <th>Category</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {product.products.length > 0
-            ? product.products.map((product) => (
-                <tr key={product._id}>
-                  <td>2</td>
-                  <td>{product.name}</td>
-                  <td>{product.price}</td>
-                  <td>{product.quantity}</td>
-                  <td>{product.category.name}</td>
-                  <td>
-                    <button onClick={() => showProductDetailsModal(product)}>
-                      info
-                    </button>
-                    <button
-                      onClick={() => {
-                        const payload = {
-                          productId: product._id,
-                        };
-                        dispatch(deleteProductById(payload));
-                      }}
-                    >
-                      del
-                    </button>
-                  </td>
-                </tr>
-              ))
-            : null}
-        </tbody>
-      </Table>
+      <div className="tabledata">
+        <Table style={{ fontSize: 12 }} responsive="sm">
+          <thead>
+            <tr>
+              {/* <th>#</th> */}
+              <th>Name</th>
+              <th>Price</th>
+              <th>Quantity</th>
+              <th>Category</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {product.products.length > 0
+              ? product.products.map((product) => (
+                  <tr key={product._id}>
+                    {/* <td>-</td> */}
+                    <td>{product.name}</td>
+                    <td>{product.price}</td>
+                    <td>{product.quantity}</td>
+                    <td>{product.category.name}</td>
+                    <td>
+                      <button onClick={() => showProductDetailsModal(product)} id="infobtn">
+                        info
+                      </button>
+                      <button
+                        onClick={() => {
+                          const payload = {
+                            productId: product._id,
+                          };
+                          dispatch(deleteProductById(payload));
+                        }} id="dltbtn"
+                      >
+                        delete
+                      </button>
+                    </td>
+                  </tr>
+                ))
+              : null}
+          </tbody>
+        </Table>
+      </div>
     );
   };
 
@@ -183,7 +185,7 @@ const Products = (props) => {
         show={productDetailModal}
         handleClose={handleCloseProductDetailsModal}
         modalTitle={"Product Details"}
-        size="lg"
+        size="xl"
       >
         <Row>
           <Col md="6">
@@ -214,7 +216,7 @@ const Products = (props) => {
         <Row>
           <Col>
             <label className="key">Product Pictures</label>
-            <div style={{ display: "flex" }}>
+            <div style={{ display: "flex"}}>
               {productDetails.productPictures.map((picture) => (
                 <div className="productImgContainer">
                   <img src={picture.img} alt="" />
@@ -231,9 +233,17 @@ const Products = (props) => {
       <Container>
         <Row>
           <Col md={12}>
-            <div style={{ display: "flex", justifyContent: "space-between" }}>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                marginTop: "-55px",
+              }}
+            >
               <h3>Products</h3>
-              <button onClick={handleShow}>Add</button>
+              <button onClick={handleShow} className="addbtn">
+                Add product
+              </button>
             </div>
           </Col>
         </Row>

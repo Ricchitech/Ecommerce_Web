@@ -2,7 +2,7 @@ import React from "react";
 import Card from "../../components/UI/Card";
 
 /**
- * @author
+ * @author Bharathraj
  * @function PriceDetails
  **/
 
